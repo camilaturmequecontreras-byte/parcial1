@@ -40,58 +40,61 @@ Orden de atención: 1 → 2 → 3 (MISMO orden)
 
 DIAGRAMA
 
-┌─────────────────────────────────────────────────────────────┐
-│                          MAIN                               │
-├─────────────────────────────────────────────────────────────┤
-│ - colaBanco: ColaBanco                                      │
-│ - scanner: Scanner                                          │
-├─────────────────────────────────────────────────────────────┤
-│ + main(args: String[]): void                                │
-│ - mostrarMenu(): void                                       │
-│ - procesarOpcion(opcion: int): void                         │
-│ - agregarCliente(): void                                    │
-│ - atenderCliente(): void                                    │
-│ - verProximoCliente(): void                                 │
-│ - consultarCantidad(): void                                 │
-│ - vaciarCola(): void                                        │
-└───────────────────┬─────────────────────────────────────────┘
+┌─────────────────────────────────────────┐
+│                     MAIN                │
+├─────────────────────────────────────────┤
+│ - colaBanco: ColaBanco                  │
+│ - scanner: Scanner                      │
+├─────────────────────────────────────────┤
+│ + main(args: String[]): void            │
+│ - mostrarMenu(): void                   │
+│ - procesarOpcion(opcion: int): void     │
+│ - agregarCliente(): void                │
+│ - atenderCliente(): void                │
+│ - verProximoCliente(): void             │
+│ - consultarCantidad(): void             │
+│ - vaciarCola(): void                    │
+└───────────────────┬─────────────────────┘
                     │
                     │ usa
                     ↓
-┌─────────────────────────────────────────────────────────────┐
-│                       COLABANCO                             │
-├─────────────────────────────────────────────────────────────┤
-│ - cola: Queue<Cliente>                                      │
-│ - ARCHIVO_BACKUP: String                                    │
-├─────────────────────────────────────────────────────────────┤
-│ + ColaBanco()                                               │
-│ + encolar(cliente: Cliente): void                           │
-│ + desencolar(): Cliente                                     │
-│ + verProximo(): Cliente                                     │
-│ + estaVacia(): boolean                                      │
-│ + tamaño(): int                                             │
-│ + vaciar(): void                                            │
-│ + mostrarTodos(): void                                      │
-│ - guardarEstado(): void                                     │
-│ - cargarEstado(): void                                      │
-└───────────────────┬─────────────────────────────────────────┘
+┌─────────────────────────────────────┐
+│             COLABANCO               │
+├─────────────────────────────────────┤
+│ - cola: Queue<Cliente>              │
+│ - ARCHIVO_BACKUP: String            │
+├─────────────────────────────────────┤
+│ + ColaBanco()                       │
+│ + encolar(cliente: Cliente): void   │
+│ + desencolar(): Cliente             │
+│ + verProximo(): Cliente             │
+│ + estaVacia(): boolean              │
+│ + tamaño(): int                     │
+│ + vaciar(): void                    │
+│ + mostrarTodos(): void              │
+│ - guardarEstado(): void             │
+│ - cargarEstado(): void              │
+└─────────────────────────────────────┘
                     │
                     │ contiene
                     ↓
-┌─────────────────────────────────────────────────────────────┐
-│                         CLIENTE                             │
-├─────────────────────────────────────────────────────────────┤
-│ - nombre: String                                            │
-│ - identificacion: String                                    │
-│ - tipoTransaccion: String                                   │
-│ - horaLlegada: LocalTime                                    │
-│ - prioridad: boolean                                        │
-├─────────────────────────────────────────────────────────────┤
-│ + Cliente(nombre, id, tipo, hora, prioridad)                │
-│ + getters() / setters()                                     │
-│ + parseHora(horaStr: String): LocalTime                     │
-│ + toString(): String                                        │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────┐
+│                 CLIENTE           │
+├───────────────────────────────────┤
+│ - nombre: String                  │
+│ - identificacion: String          │
+│ - tipoTransaccion: String         │
+│ - horaLlegada: LocalTime          │
+│ - prioridad: boolean              │
+├───────────────────────────────────┤
+│ + Cliente                         │
+│  (nombre, id, tipo,               │
+│hora, prioridad)                   │
+│ + getters() / setters()           │
+│ + parseHora(horaStr: String):     │
+│LocalTime                          │
+│ + toString(): String              │
+└───────────────────────────────────┘
 
                     <<interface>>
                     ┌─────────────┐
